@@ -53,7 +53,9 @@
 		 	 		
 		 	 	$this->load->view('templates/header');
 		 	 	$this->load->view('pages/'.$page,$data);
+		 	 	$this->load->view('templates/modal');
 		 	 	$this->load->view('templates/footer');
+
 		 	 	
 		 	 	}else{
 
@@ -63,6 +65,12 @@
  	 		}	 
 		}
  	 
+
+
+ 	 public function login(){
+
+ 	 	echo "login"; 
+ 	 }
 
 
 
@@ -120,9 +128,9 @@
 		 	 	$data['title'] = "Edit Post";
 		 	 	$data['blogs'] = $this->posts_model->get_posts_edit($param);
 		 	 	$data['title'] = $data['blogs']['title'];
-		 	 	$data['body'] = $data['blogs']['body'];
-		 	 	$data['date'] = $data['blogs']['date_published'];
-		 	 	$data['id'] = $data['blogs']['id'];
+		 	 	$data['body']  = $data['blogs']['body'];
+		 	 	$data['date']  = $data['blogs']['date_published'];
+		 	 	$data['id']    = $data['blogs']['id'];
 		 	 
 		 	 
 
@@ -133,16 +141,22 @@
 
  	 	}else{
 
- 	 		$this->posts_model->insert_post();
- 	 		$this->session->set_flashdata('post_added','Post was added');
- 	 		redirect(base_url());
+ 	 		$this->posts_model->update_post();
+ 	 		$this->session->set_flashdata('post_update','Post was updated');
+ 	 		redirect(base_url().'edit/'.$param);
 
 
- 	 	}
+ 	 		}
  	    }
 
 
  	        public function delete(){
+
+
+ 	        	$this->posts_model->delete_post();
+ 	        	$this->session->set_flashdata('post_delete', 'Pots was deleted successfully!!!');
+ 	        	redirect(base_url());
+
  	    	
  	    }
  	

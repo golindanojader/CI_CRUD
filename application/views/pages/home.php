@@ -3,10 +3,21 @@
 
  if($this->session->flashdata('post_added')):?>
 
-
 	<?= '<p class="alert alert-success">'.$this->session->flashdata('post_added').'</p>';?>
 	
 	<?php endif; ?>
+
+
+
+<?php 
+
+ if($this->session->flashdata('post_delete')):?>
+
+	<?= '<p class="alert alert-success">'.$this->session->flashdata('post_delete').'</p>';?>
+	
+	<?php endif; ?>
+
+
 
 
 <h1><?=$title;  ?></h1>

@@ -11,20 +11,20 @@
  <header>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark  bg-dark">
-    <a class="navbar-brand" href="#">Blog Post</a>
+    <a class="navbar-brand" href="<?=base_url()?>">Blog Post</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<?=base_url()?>">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="add">Add New Post</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="<?=base_url()?>login" tabindex="-1" aria-disabled="true">Login</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">

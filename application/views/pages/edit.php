@@ -1,3 +1,12 @@
+<?php 
+
+ if($this->session->flashdata('post_update')):?>
+
+	<?= '<p class="alert alert-success">'.$this->session->flashdata('post_update').'</p>';?>
+	
+	<?php endif; ?>
+
+
 <h1><?=$title;?></h1>
 <hr>
 
@@ -7,12 +16,12 @@
 
 	<div class="col-lg-12">
 
-		<?= form_open('add');  ?>
+		<?= form_open('edit/'.$id);  ?>
 
 
 		<div class="form-group">
 			
-			<input type="text" name="title" class="form-control" placeholder="Enter post title" value = "<?= set_value('title');?>">
+			<input type="text" name="title" class="form-control" placeholder="Enter post title" value = "<?= $title ?>">
 
 
 
@@ -22,12 +31,13 @@
 
 		<div class="form-group">
 			
-			<textarea name="body" cols="30" rows="5" class="form-control" placeholder="Enter post details"<?= set_value('body');?>></textarea>
+			<textarea name="body" cols="30" rows="5" class="form-control" placeholder="Enter post details"><?= $body;?></textarea>
 		</div>
 
+		<input type="hidden" name="id" value="<?= $id; ?>">
 
 
-		<button type="submit" name="submit" class="btn btn-success">Submit</button>
+		<button type="submit" name="submit" class="btn btn-primary">Update</button>
 		
 	</div>
 	
