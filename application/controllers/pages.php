@@ -69,8 +69,37 @@
 
  	 public function login(){
 
- 	 	echo "login"; 
- 	 }
+ 	 	$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+ 	 	$this->form_validation->set_rules('user','user', 'required');
+ 	 	$this->form_validation->set_rules('password','password', 'required');
+
+ 	 	if($this->form_validation->run() == FALSE) {
+ 	 	
+ 	 		$page = "login";
+
+		 	 	if (!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+		 	 		
+		 	 		show_404();
+
+		 	 	}
+		 			 	 
+
+		 	 	$this->load->view('templates/header');
+		 	 	$this->load->view('pages/'.$page);
+		 	 	$this->load->view('templates/footer');
+
+
+		 	 	}else{
+
+		 	 		$this->posts_model->login();
+		 	 		$this->session->set_flashdata('post_update','Post was updated');
+		 	 		// redirect(base_url().'edit/'.$param);
+
+
+		 	 		}
+
+ 
+ 			 }
 
 
 

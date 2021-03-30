@@ -90,4 +90,13 @@ class posts_model extends CI_Model{
 
 		 }
 
+
+		 public function login(){
+
+
+		 	$this->db->where('email',$this->input->post('username',true));
+		 	$this->db->where('password',$this->input->post('username',true));
+
+		 }
+
 }
