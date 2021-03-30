@@ -4,9 +4,9 @@
 
 <?php 
 
- if($this->session->flashdata('user_loggedin')):?>
+ if($this->session->flashdata('failed_login')):?>
 
-	<?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>';?>
+	<?= '<p class="alert alert-danger">'.$this->session->flashdata('failed_login').'</p>';?>
 	
 <?php endif; ?>
 
@@ -18,7 +18,7 @@
 
 <div class="form-group">
 	<label>Username / Email</label>
-	<input type="text" name="username" class="form-control" value="<?=set_value('username');?>" autocomplete="off" placeholder="Enter the username mail">
+	<input type="email" name="username" class="form-control" value="<?=set_value('username');?>" autocomplete="off" placeholder="Enter the username mail">
 </div>
 
 

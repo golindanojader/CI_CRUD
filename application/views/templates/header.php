@@ -23,9 +23,29 @@
         <li class="nav-item">
           <a class="nav-link" href="add">Add New Post</a>
         </li>
+
+
+
+
+        <?php if ($this->session->logged_in) {?>
+
+          <li class="nav-item">
+          <a class="nav-link" href="<?=base_url()?>logout" tabindex="-1" aria-disabled="true">Logout</a>
+        </li>
+
         <li class="nav-item">
+          <a class="nav-link" href="add"><?=$this->session->fullname;?></a>
+        </li>
+       
+      <?php  } else{?>   
+
+           <li class="nav-item">
           <a class="nav-link" href="<?=base_url()?>login" tabindex="-1" aria-disabled="true">Login</a>
         </li>
+
+
+        <?php } ?>
+        
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

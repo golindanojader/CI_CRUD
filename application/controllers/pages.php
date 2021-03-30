@@ -97,7 +97,7 @@
 		 	 		
 		 	 		$user_data = array(
 		 	 			'firstname'=>$user_id['firstname'],
-		 	 			'fullname'=>$user_id['firstname'].''.$user_id['lastname'],
+		 	 			'fullname'=>$user_id['firstname'].'  '.$user_id['lastname'],
 		 	 			'lastname' =>$user_id['lastname'],
 		 	 			'access' =>$user_id['is_admin'],
 		 	 			'logged_in' =>true
@@ -105,12 +105,12 @@
 		 	 		);
 
 		 	 		$this->session->set_userdata($user_data);
-		 	 		$this->session->set_flashdata('user_loggedin','You are now loged in as'.$this->session->fullname);
+		 	 		$this->session->set_flashdata('user_loggedin','You are now loged in as  <b>'.$this->session->fullname);
 		 	 		redirect(base_url());
 
 		 	 			 }else{
 
-		 	 			 	$this->session->set_flashdata('failed_login','Invalid Login');
+		 	 			 	$this->session->set_flashdata('failed_login','Invalid Login or Password');
 
 		 	 			 	redirect('login');
 		 	 			 }
