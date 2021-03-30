@@ -1,11 +1,5 @@
 
-<?php 
 
- if($this->session->flashdata('failed_login')):?>
-
-	<?= '<p class="alert alert-success">'.$this->session->flashdata('failed_login').'</p>';?>
-	
-<?php endif; ?>
 
 
 <?php 
@@ -51,3 +45,9 @@
 	 <?php   } ?>
 	
 </ul>
+
+<br>
+<div class="alert alert-secondary" role="alert">
+	Total post is: <?=$total;?>
+</div>
+

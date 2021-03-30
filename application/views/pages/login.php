@@ -11,6 +11,26 @@
 <?php endif; ?>
 
 
+
+<?php 
+
+ if($this->session->flashdata('user_loggedout')):?>
+
+	<?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>';?>
+	
+<?php endif; ?>
+
+
+<?php 
+
+ if($this->session->flashdata('failed_login')):?>
+
+	<?= '<p class="alert alert-success">'.$this->session->flashdata('failed_login').'</p>';?>
+	
+<?php endif; ?>
+
+
+
 <?= validation_errors(); ?>
 
 <?=form_open('login')?>

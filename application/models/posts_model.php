@@ -19,6 +19,16 @@ class posts_model extends CI_Model{
 		  }
 
 
+		  public function get_posts_search($param){
+
+		  $this->db->like('title',$param);
+		  $query = 	$this->db->get('blogs');
+
+		  return $query->result_array(); 
+
+		  }
+
+
 
 		  public function get_posts_single($param){
 

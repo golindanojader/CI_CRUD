@@ -23,6 +23,7 @@
 		 	 	}
 		 	 	$data['title'] = "New Posts";
 		 	 	$data['blogs'] = $this->posts_model->get_posts();
+		 	 	$data['total'] = count($data['blogs']);
 
 
 		 	 
@@ -63,6 +64,32 @@
 				} 	
  	 	
  	 		}	 
+		}
+
+
+		public function search(){
+
+
+			$page = "home";
+			$param = $this->input->post('search');
+
+
+		 	 	if (!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+		 	 		
+		 	 		show_404();
+
+		 	 	}
+		 	 	$data['title'] = "New Posts";
+		 	 	$data['blogs'] = $this->posts_model->get_posts_search($param);
+		 	 	$data['total'] = count($data['blogs']);
+
+		 	 
+
+		 	 	$this->load->view('templates/header');
+		 	 	$this->load->view('pages/'.$page,$data);
+		 	 	$this->load->view('templates/footer');
+
+
 		}
  	 
 
@@ -118,6 +145,22 @@
 
 		 	 		}
 
+ 			 }
+
+
+
+ 			 public function logout(){
+
+ 			 	$this->session->unset_userdata('firstname');
+ 			 	$this->session->unset_userdata('lastname');
+ 			 	$this->session->unset_userdata('fullname');
+ 			 	$this->session->unset_userdata('access');
+ 			 	$this->session->unset_userdata('logged_in');
+
+
+ 			 	$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+
+ 			 	redirect('login');
  			 }
 
 
