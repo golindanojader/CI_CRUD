@@ -95,7 +95,18 @@ class posts_model extends CI_Model{
 
 
 		 	$this->db->where('email',$this->input->post('username',true));
-		 	$this->db->where('password',$this->input->post('username',true));
+		 	$this->db->where('password',$this->input->post('password',true));
+		 	$result = $this->db->get('user');
+
+
+		 	if ($result->num_rows()==1) {
+		 		
+
+		 		return $result->row_array();
+		 	}else{
+
+		 		return false;   
+		 	}
 
 		 }
 

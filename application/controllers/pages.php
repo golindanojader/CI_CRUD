@@ -70,7 +70,7 @@
  	 public function login(){
 
  	 	$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
- 	 	$this->form_validation->set_rules('user','user', 'required');
+ 	 	$this->form_validation->set_rules('username','username', 'required');
  	 	$this->form_validation->set_rules('password','password', 'required');
 
  	 	if($this->form_validation->run() == FALSE) {
@@ -91,14 +91,33 @@
 
 		 	 	}else{
 
-		 	 		$this->posts_model->login();
-		 	 		$this->session->set_flashdata('post_update','Post was updated');
-		 	 		// redirect(base_url().'edit/'.$param);
+		 	 	$user_id =	$this->posts_model->login();
 
+		 	 	if ($user_id) {
+		 	 		
+		 	 		$user_data = array(
+		 	 			'firstname'=>$user_id['firstname'],
+		 	 			'fullname'=>$user_id['firstname'].''.$user_id['lastname'],
+		 	 			'lastname' =>$user_id['lastname'],
+		 	 			'access' =>$user_id['is_admin'],
+		 	 			'logged_in' =>true
+
+		 	 		);
+
+		 	 		$this->session->set_userdata($user_data);
+		 	 		$this->session->set_flashdata('user_loggedin','You are now loged in as'.$this->session->fullname);
+		 	 		redirect(base_url());
+
+		 	 			 }else{
+
+		 	 			 	$this->session->set_flashdata('failed_login','Invalid Login');
+
+		 	 			 	redirect('login');
+		 	 			 }
+		 	 		
 
 		 	 		}
 
- 
  			 }
 
 

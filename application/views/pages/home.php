@@ -1,11 +1,31 @@
 
 <?php 
 
+ if($this->session->flashdata('failed_login')):?>
+
+	<?= '<p class="alert alert-success">'.$this->session->flashdata('failed_login').'</p>';?>
+	
+<?php endif; ?>
+
+
+<?php 
+
+ if($this->session->flashdata('user_loggedin')):?>
+
+	<?= '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>';?>
+	
+<?php endif; ?>
+
+
+
+
+<?php 
+
  if($this->session->flashdata('post_added')):?>
 
 	<?= '<p class="alert alert-success">'.$this->session->flashdata('post_added').'</p>';?>
 	
-	<?php endif; ?>
+<?php endif; ?>
 
 
 
