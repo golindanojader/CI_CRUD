@@ -25,9 +25,6 @@
 		 	 	$data['blogs'] = $this->posts_model->get_posts();
 		 	 	$data['total'] = count($data['blogs']);
 
-
-		 	 
-
 		 	 	$this->load->view('templates/header');
 		 	 	$this->load->view('pages/'.$page,$data);
 		 	 	$this->load->view('templates/footer');
@@ -61,6 +58,8 @@
 		 	 	}else{
 
 		 	 		show_404();
+
+
 				} 	
  	 	
  	 		}	 

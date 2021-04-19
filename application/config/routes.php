@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-$route['login'] = 'pages/login';
+$route['login']  = 'pages/login';
 $route['logout'] = 'pages/logout'; 
 
 $route['search'] = 'pages/search';

@@ -7,7 +7,7 @@
 
 	<div class="col-lg-12">
 
-		<?= form_open('add');  ?>
+		<?=  form_open('add');  ?>
 
 
 		<div class="form-group">
